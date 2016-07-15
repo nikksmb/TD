@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD", "TD\TD.csproj", "{50B79042-791B-4DC7-93FF-50947EBCB725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD.ModuleAnalyzer", "TD.ModuleAnalyzer\TD.ModuleAnalyzer.csproj", "{6E8BBB1E-403B-406B-8D12-7EFFBBED496E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD.PathAlgorithmAnalyser", "TD.PathAlgorithmAnalyser\TD.PathAlgorithmAnalyser.csproj", "{53E30386-EBD9-4EE0-AF17-4DE6EEFFEBD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TD.PathAlgorithm", "TD.PathAlgorithm\TD.PathAlgorithm.csproj", "{3B692DCC-35A2-4095-8703-66BE5ED6FAF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50B79042-791B-4DC7-93FF-50947EBCB725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B79042-791B-4DC7-93FF-50947EBCB725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B79042-791B-4DC7-93FF-50947EBCB725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B79042-791B-4DC7-93FF-50947EBCB725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E8BBB1E-403B-406B-8D12-7EFFBBED496E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E8BBB1E-403B-406B-8D12-7EFFBBED496E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E8BBB1E-403B-406B-8D12-7EFFBBED496E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E8BBB1E-403B-406B-8D12-7EFFBBED496E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E30386-EBD9-4EE0-AF17-4DE6EEFFEBD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E30386-EBD9-4EE0-AF17-4DE6EEFFEBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E30386-EBD9-4EE0-AF17-4DE6EEFFEBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E30386-EBD9-4EE0-AF17-4DE6EEFFEBD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B692DCC-35A2-4095-8703-66BE5ED6FAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B692DCC-35A2-4095-8703-66BE5ED6FAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B692DCC-35A2-4095-8703-66BE5ED6FAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B692DCC-35A2-4095-8703-66BE5ED6FAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

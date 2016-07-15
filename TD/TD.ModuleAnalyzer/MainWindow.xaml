@@ -1,0 +1,19 @@
+﻿<Window x:Class="TD.ModuleAnalyzer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TD.ModuleAnalyzer"
+        mc:Ignorable="d"
+        Title="Проверка работы модулей" Height="350" Width="525">
+    <Grid>
+        <Slider x:Name="queueLength" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="125" Minimum="1" ToolTip="Длина очереди"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="159" Margin="10,151,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,130,0,0" TextWrapping="Wrap" Text="Список модулей" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="235,9,0,0" TextWrapping="Wrap" Text="Очередь модулей" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Длина очереди" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="100,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
+        <Button x:Name="button" Content="Рассчитать" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="125"/>
+
+    </Grid>
+</Window>
