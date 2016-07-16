@@ -50,6 +50,19 @@ namespace TD.PathAlgorithmAnalyser
             6000, 1000,
             6500, 8000,
             9000, 1000
+            
+            /*1000,1000,
+            8000,1000,
+            1500,2000,
+            2000,3000,
+            9000,5000,
+            9000,6000,
+            6500,6000,
+            8000,4000,
+            1000,6500,
+            1000,1000,
+            3000,9000*/
+            
         };
 
         public TaskScheduler GetScheduler()
@@ -77,6 +90,11 @@ namespace TD.PathAlgorithmAnalyser
         private void heightBtn_Click(object sender, RoutedEventArgs e)
         {
             rectangle.Height = Convert.ToInt32(heightBox.Text);
+        }
+
+        private void angleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            rectangle.Angle = Convert.ToInt32(angleBox.Text) * Math.PI / 180;
         }
 
         private void centerBtn_Click(object sender, RoutedEventArgs e)

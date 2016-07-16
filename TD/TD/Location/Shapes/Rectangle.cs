@@ -66,11 +66,12 @@ namespace TD.Location.Shapes
                 {
                     return 0;
                 }
-                return Math.Acos((double)(A.Y - C.Y) / Height);
+                return Math.Atan2(A.Y - B.Y, A.X - B.X);
             }
             set
             {
                 RecalculateAngle(value - Angle);
+                InvokeChanged();
             }
         }
 
@@ -90,32 +91,7 @@ namespace TD.Location.Shapes
             Height = (int)height;
 
             //Step 3: initialize angle and rotation
-            Angle = Math.Acos((secondMiddle.Y - firstMiddle.Y) / height);
-/*
-            double cosA = (secondMiddle.Y - firstMiddle.Y) / height;
-            double sinA = (secondMiddle.X - firstMiddle.X) / height;
-
-            //!!!
-            A = new Point
-            {
-                X = (int)(firstMiddle.X - width / 2.0 * cosA),
-                Y = (int)(firstMiddle.Y + width / 2.0 * sinA)
-            };
-            B = new Point
-            {
-                X = (int)(firstMiddle.X + width / 2.0 * cosA),
-                Y = (int)(firstMiddle.Y - width / 2.0 * sinA)
-            };
-            C = new Point
-            {
-                X = (int)(secondMiddle.X - width / 2.0 * cosA),
-                Y = (int)(secondMiddle.Y + width / 2.0 * sinA)
-            };
-            D = new Point
-            {
-                X = (int)(secondMiddle.X + width / 2.0 * cosA),
-                Y = (int)(secondMiddle.Y - width / 2.0 * sinA)
-            };*/
+            Angle = Math.Atan2(secondMiddle.Y - firstMiddle.Y, secondMiddle.X - firstMiddle.X) + Math.PI / 2; 
         }
 
         public override void RecalculateChanges(Point newCenter)
@@ -146,23 +122,23 @@ namespace TD.Location.Shapes
         {
             Point pA = new Point
             {
-                X = (int)(A.X - (newWidth - Width) / 2.0 * Math.Cos(Angle)),
-                Y = (int)(A.Y - (newWidth - Width) / 2.0 * Math.Sin(Angle))
+                X = (int)(A.X + (newWidth - Width) / 2.0 * Math.Cos(Angle)),
+                Y = (int)(A.Y + (newWidth - Width) / 2.0 * Math.Sin(Angle))
             };
             Point pB = new Point
             {
-                X = (int)(B.X + (newWidth - Width) / 2.0 * Math.Cos(Angle)),
-                Y = (int)(B.Y + (newWidth - Width) / 2.0 * Math.Sin(Angle))
+                X = (int)(B.X - (newWidth - Width) / 2.0 * Math.Cos(Angle)),
+                Y = (int)(B.Y - (newWidth - Width) / 2.0 * Math.Sin(Angle))
             };
             Point pC = new Point
             {
-                X = (int)(C.X - (newWidth - Width) / 2.0 * Math.Cos(Angle)),
-                Y = (int)(C.Y - (newWidth - Width) / 2.0 * Math.Sin(Angle))
+                X = (int)(C.X + (newWidth - Width) / 2.0 * Math.Cos(Angle)),
+                Y = (int)(C.Y + (newWidth - Width) / 2.0 * Math.Sin(Angle))
             };
             Point pD = new Point
             {
-                X = (int)(D.X + (newWidth - Width) / 2.0 * Math.Cos(Angle)),
-                Y = (int)(D.Y + (newWidth - Width) / 2.0 * Math.Sin(Angle))
+                X = (int)(D.X - (newWidth - Width) / 2.0 * Math.Cos(Angle)),
+                Y = (int)(D.Y - (newWidth - Width) / 2.0 * Math.Sin(Angle))
             };
             A = pA;
             B = pB;
@@ -174,23 +150,23 @@ namespace TD.Location.Shapes
         {
             Point pA = new Point
             {
-                X = (int)(A.X - (newHeight - Height) / 2.0 * Math.Sin(Angle)),
-                Y = (int)(A.Y + (newHeight - Height) / 2.0 * Math.Cos(Angle))
+                X = (int)(A.X + (newHeight - Height) / 2.0 * Math.Sin(Angle)),
+                Y = (int)(A.Y - (newHeight - Height) / 2.0 * Math.Cos(Angle))
             };
             Point pB = new Point
             {
-                X = (int)(B.X - (newHeight - Height) / 2.0 * Math.Sin(Angle)),
-                Y = (int)(B.Y + (newHeight - Height) / 2.0 * Math.Cos(Angle))
+                X = (int)(B.X + (newHeight - Height) / 2.0 * Math.Sin(Angle)),
+                Y = (int)(B.Y - (newHeight - Height) / 2.0 * Math.Cos(Angle))
             };
             Point pC = new Point
             {
-                X = (int)(C.X + (newHeight - Height) / 2.0 * Math.Sin(Angle)),
-                Y = (int)(C.Y - (newHeight - Height) / 2.0 * Math.Cos(Angle))
+                X = (int)(C.X - (newHeight - Height) / 2.0 * Math.Sin(Angle)),
+                Y = (int)(C.Y + (newHeight - Height) / 2.0 * Math.Cos(Angle))
             };
             Point pD = new Point
             {
-                X = (int)(D.X + (newHeight - Height) / 2.0 * Math.Sin(Angle)),
-                Y = (int)(D.Y - (newHeight - Height) / 2.0 * Math.Cos(Angle))
+                X = (int)(D.X - (newHeight - Height) / 2.0 * Math.Sin(Angle)),
+                Y = (int)(D.Y + (newHeight - Height) / 2.0 * Math.Cos(Angle))
             };
             A = pA;
             B = pB;
@@ -200,15 +176,17 @@ namespace TD.Location.Shapes
 
         private void RecalculateAngle(double newAngle)
         {
-            //just initialize foor now
-            //return;
+            if (newAngle == 0)
+            {
+                return;
+            }
 
             double cosA = Math.Cos(newAngle);
             double sinA = Math.Sin(newAngle);
             Point pA = new Point()
             {
-                X = (int)(cosA*(A.X - Center.X) - sinA*(A.Y - Center.Y) + Center.X),
-                Y = (int)(sinA*(A.X - Center.X) + cosA*(A.Y - Center.Y) + Center.Y)
+                X = (int)(cosA * (A.X - Center.X) - sinA * (A.Y - Center.Y) + Center.X),
+                Y = (int)(sinA * (A.X - Center.X) + cosA * (A.Y - Center.Y) + Center.Y)
             };
 
             Point pB = new Point()

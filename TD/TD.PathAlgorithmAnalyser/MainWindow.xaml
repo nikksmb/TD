@@ -18,6 +18,8 @@
         <Button x:Name="centerBtn" Content="Center" HorizontalAlignment="Left" Margin="63,121,0,0" VerticalAlignment="Top" Width="49" Click="centerBtn_Click"/>
         <Button x:Name="button1" Content="Async change" HorizontalAlignment="Left" Margin="11,176,0,0" VerticalAlignment="Top" Width="101" Click="button1_Click_1"/>
         <Button x:Name="button2" Content="Unit" HorizontalAlignment="Left" Margin="11,203,0,0" VerticalAlignment="Top" Width="101" Click="button2_Click"/>
+        <Button x:Name="angleBtn" Content="Angle" HorizontalAlignment="Left" Margin="63,36,0,0" VerticalAlignment="Top" Width="49" Click="angleBtn_Click"/>
+        <TextBox x:Name="angleBox" HorizontalAlignment="Left" Height="23" Margin="11,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47"/>
 
     </Grid>
 </Window>
